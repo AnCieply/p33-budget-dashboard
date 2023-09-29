@@ -8,5 +8,6 @@ React.js\
 Electron.js
 
 ### Backend
+Javascript\
 Node.js\
-MongoDB database
+MongoDB
