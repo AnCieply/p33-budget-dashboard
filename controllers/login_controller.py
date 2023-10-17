@@ -1,4 +1,4 @@
-from flask import render_template, request, url_for
+from flask import render_template, request, make_response, url_for, redirect
 
 from init import app
 from models.login_model import authenticate_user
@@ -18,6 +18,9 @@ def login_page():
             elif result == -2:
                 return "Wrong Password"
 
-        return str(result)
+        # Store user id as cookie
+        resp = make_response(redirect("/dashboard"))
+        resp.set_cookie("id", str(result))
+        return resp
     else:
         return render_template("login.html")
