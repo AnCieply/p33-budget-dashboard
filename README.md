@@ -3,14 +3,12 @@ A budget management application created for the P33 project
 
 ## Tech Stack
 ### Frontend
-HTML, CSS, and Javascript\
-React.js\
-Electron.js
+HTML and CSS
 
 ### Backend
-Javascript\
-Node.js\
-MongoDB
+Python\
+Flask\
+SQLite3
 
 ## Setup
 #### Windows steps coming later
