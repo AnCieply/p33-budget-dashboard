@@ -5,12 +5,14 @@
 {% endblock %}
 
 {% block body %}
-<h1>Create Account</h1>
-<form action="/accountcreation" method="POST">
-    <input type="text" id="Username" name="Username" placeholder="Username">
-    <br><br>
-    <input type="text" id="Password" name="Password" placeholder="Password">
-    <br><br>
-    <input type="submit" value="Create Account">
-</form>
+<div class="signupbox">
+    <h1>Signup</h1>
+    <form action="/accountcreation" method="POST">
+        <div class="signupinputs">
+            <input type="text" id="Username" name="Username" placeholder="Username">
+            <input type="text" id="Password" name="Password" placeholder="Password">
+            <input type="submit" value="Create Account">
+        </div>
+    </form>
+</div>
 {% endblock %}
