@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Create Account</title>
+{% endblock %}
+
+{% block body %}
+<h1>Create Account</h1>
+<form action="/accountcreation" method="POST">
+    <input type="text" id="Username" name="Username" placeholder="Username">
+    <br><br>
+    <input type="text" id="Password" name="Password" placeholder="Password">
+    <br><br>
+    <input type="submit" value="Create Account">
+</form>
+{% endblock %}
