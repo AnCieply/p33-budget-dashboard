@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.io.BufferedReader;
 
 public class login {
-    public static void main(String[] args) {
+    public void userNamePassword() {
         Scanner scanner = new Scanner(System.in);
 
         ArrayList<String> usernames = new ArrayList<>(); //Dynamic arrays
