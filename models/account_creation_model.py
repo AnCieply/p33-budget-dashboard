@@ -1,5 +1,5 @@
 from init import db
-from models.db_models import Account
+from models.db_models import Account, UserData
 
 def username_exists(username: str):
     try:
@@ -19,7 +19,12 @@ def create_account(username: str, password: str):
         new_account.password = password
         new_account.id = db.session.query(Account).count() + 1
         
+        new_data = UserData()
+        new_data.id = new_account.id
+        new_data.balance = 0.0
+        
         db.session.add(new_account)
+        db.session.add(new_data)
         db.session.commit()
         return True
     except:
