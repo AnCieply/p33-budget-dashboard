@@ -8,4 +8,4 @@ def dashboard_page():
     id = request.cookies.get("id")
     # Arcane code that formats the float value as dollars and cents
     balance = "${:,.2f}".format(get_user_balance(int(id or 0)))
-    return render_template("dashboard.html", id=id, balance=balance)
+    return render_template("dashboard.html", page="dash", id=id, balance=balance)
