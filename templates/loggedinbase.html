@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/postdash.css') }}">
+        {% block head %}{% endblock %}
+    </head>
+    <body>
+        <div class="navbar">
+            <a {% if page == "dash" %} class="active" {% endif %} href="{{ url_for('dashboard_page') }}">Dashboard</a>
+            <a {% if page == "report" %} class="active" {% endif %} href="{{ url_for('report_page') }}">Report</a>
+            <a {% if page == "spending" %} class="active" {% endif %} href="{{ url_for('spending_plan_page') }}">Spending Plan</a>
+        </div>
+        {% block body %}{% endblock %}
+    </body>
+</html>
