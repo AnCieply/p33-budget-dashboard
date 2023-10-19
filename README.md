@@ -11,7 +11,38 @@ Flask\
 SQLite3
 
 ## Setup
-#### Windows steps coming later
+### Windows
+Install python
+
+Clone the git repo and open in powershell
+
+Install virtualenv
+```
+pip install virtualenv
+```
+Run the following command to create the python virtual environment
+```
+python -m virtualenv env
+```
+Activate the environment
+```
+.\env\Scripts\activate.ps1
+```
+If you get any issues with running this script, run this command first:
+```
+Set-ExecutionPolicy -Scope CurrentUser unrestricted
+```
+
+Install flask and flask_sqlalchemy
+```
+pip install flask flask_sqlalchemy
+```
+Finally, to run the app, run the following command in the project's root
+```
+python app.py
+```
+
+
 ### Ubuntu
 Install python and dependencies
 ```
@@ -33,7 +64,7 @@ Install flask and flask_sqlalchemy
 ```
 pip install flask flask_sqlalchemy
 ```
-Finally, to run the app, run the following command in the projects root
+Finally, to run the app, run the following command in the project's root
 ```
 python3 app.py
 ```
