@@ -12,6 +12,12 @@
             <input type="text" id="Username" name="Username" placeholder="Username">
             <input type="text" id="Password" name="Password" placeholder="Password">
             <input type="submit" value="Login">
+            {% if pass_correct == "False" %}
+            <p>Incorrect password. Please try again.</p>
+            {% endif %}
+            {% if account_exists == "False" %}
+            <p>Account doesn't exist. Please try again.</p>
+            {% endif %}
         </div>
     </form>
 </div>
