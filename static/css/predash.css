@@ -28,6 +28,7 @@ h1,p {
 
 input[type=text] {
     background-color: #30303b;
+    color: white;
     border: none;
 }
 
