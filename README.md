@@ -68,3 +68,10 @@ Finally, to run the app, run the following command in the project's root
 ```
 python3 app.py
 ```
+
+## Screenshots
+![Login Page](/screenshots/login.png?raw=true "Login Page")
+![Signup Page](/screenshots/signup.png?raw=true "Signup Page")
+![Dashboard Page](/screenshots/dashboard.png?raw=true "Dashboard Page")
+![Report Page](/screenshots/report.png?raw=true "Report Page")
+![Spending Plan Page](/screenshots/spendingplan.png?raw=true "Spending Plan Page")
