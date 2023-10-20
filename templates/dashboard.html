@@ -5,6 +5,12 @@
 {% endblock %}
 
 {% block body %}
-<p>This is the dashboard of user id {{id}}</p>
-<p>with a balance of {{balance}}</p>
+<div class="balancebox">
+    <h1>Balance</h1>
+    <p>{{balance}}</p>
+</div>
+<div class="transbox">
+    <h1>Transactions</h1>
+    <p>This is where the transaction table will be!</p>
+</div>
 {% endblock %}
