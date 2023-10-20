@@ -15,9 +15,10 @@
             <input type="submit" name="signup_button" value="Signup">
             {% if pass_correct == "False" %}
             <p>Incorrect password. Please try again.</p>
-            {% endif %}
-            {% if account_exists == "False" %}
+            {% elif account_exists == "False" %}
             <p>Account doesn't exist. Please try again.</p>
+            {% else %}
+            <p>‏‏‎ ‎</p>
             {% endif %}
         </div>
     </form>
