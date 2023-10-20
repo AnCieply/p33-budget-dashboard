@@ -11,7 +11,8 @@
         <div class="logininputs">
             <input type="text" id="Username" name="Username" placeholder="Username">
             <input type="text" id="Password" name="Password" placeholder="Password">
-            <input type="submit" value="Login">
+            <input type="submit" name="login_button" value="Login">
+            <input type="submit" name="signup_button" value="Signup">
             {% if pass_correct == "False" %}
             <p>Incorrect password. Please try again.</p>
             {% endif %}
