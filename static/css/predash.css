@@ -1,11 +1,29 @@
 body {
     margin: 0;
-    font-family: sans-serif;
-    background-color: #0f0f33;
+    font-family: nunito, sans-serif;
+    background-color: #a8a8a8;
 }
 
 h1,p {
+    color: black;
+}
+
+.navbar {
+    display: flex;
+    background-color: #333;
+    overflow: hidden;
+    justify-content: center;
+}
+
+.navbar a {
+    float: left;
     color: white;
+    text-align: center;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 18px;
+    width: 10%;
+    user-select: none;
 }
 
 .loginbox {
@@ -27,8 +45,32 @@ h1,p {
 }
 
 input[type=text] {
-    background-color: #30303b;
-    border: none;
+    font-family: nunito, sans-serif;
+    background-color: #ffffff;
+    color: black;
+    font-size: 17px;
+    width: 200px;
+    height: 30px;
+    border: 3px solid #333;
+}
+
+input[type=submit] {
+    font-family: nunito, sans-serif;
+    background-color: #ffffff;
+    color: black;
+    font-size: 17px;
+    width: 125px;
+    height: 30px;
+    border: 3px solid #04AA6D;
+    transition-duration: 0.2s;
+    border-radius: 5px;
+}
+
+input[type=submit]:hover {
+    background-color: #04AA6D;
+    color: black;
+    font-size: 17px;
+    border: 3px solid #04AA6D;
 }
 
 ::placeholder {
