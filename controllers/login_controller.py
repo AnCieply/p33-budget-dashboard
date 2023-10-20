@@ -5,6 +5,11 @@ from models.login_model import authenticate_user
 
 @app.route("/login", methods=["POST", "GET"])
 def login_page():
+    id = request.cookies.get("id", -1, type=int)
+    # Send back to dashboard if an account is already logged in
+    if id != -1:
+        return redirect("/dashboard")
+    
     if request.method == "POST":
         if "signup_button" in request.form:
             return redirect("/signup")
