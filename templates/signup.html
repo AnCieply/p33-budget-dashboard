@@ -1,17 +1,17 @@
 {% extends 'base.html' %}
 
 {% block head %}
-<title>Create Account</title>
+<title>Signup</title>
 {% endblock %}
 
 {% block body %}
 <div class="signupbox">
     <h1>Signup</h1>
-    <form action="/accountcreation" method="POST">
+    <form action="/signup" method="POST">
         <div class="signupinputs">
             <input type="text" id="Username" name="Username" placeholder="Username">
             <input type="text" id="Password" name="Password" placeholder="Password">
-            <input type="submit" value="Create Account">
+            <input type="submit" name="signup_button" value="Signup">
         </div>
     </form>
 </div>

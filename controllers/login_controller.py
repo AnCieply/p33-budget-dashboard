@@ -7,7 +7,7 @@ from models.login_model import authenticate_user
 def login_page():
     if request.method == "POST":
         if "signup_button" in request.form:
-            return redirect("/accountcreation")
+            return redirect("/signup")
         
         # User input from view
         username = request.form["Username"]
