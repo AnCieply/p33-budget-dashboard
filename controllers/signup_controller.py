@@ -9,6 +9,9 @@ def signup_page():
         username = request.form["Username"]
         password = request.form["Password"]
         
+        if username.isspace() or username == "" or password.isspace() or password == "":
+            return render_template("signup.html", space_or_empty="True")
+        
         if not create_account(username, password):
             return "Failed to create account"
         else:
