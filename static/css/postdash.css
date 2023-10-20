@@ -31,3 +31,28 @@ body {
     background-color: #04AA6D;
     color: white;
 }
+
+.balancebox {
+    text-align: center;
+}
+
+.balancebox p {
+    text-align: center;
+    font-size: 40px;
+}
+
+.transbox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    padding: 0% 10%;
+}
+
+table, tr, th, td {
+    border: 1px solid
+}
+
+th, td {
+    width: 200px
+}
