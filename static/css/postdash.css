@@ -18,7 +18,8 @@ body {
     padding: 10px 20px;
     text-decoration: none;
     font-size: 18px;
-    width: 10%
+    width: 10%;
+    user-select: none;
 }
 
 .navbar a:hover {
