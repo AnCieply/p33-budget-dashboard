@@ -11,7 +11,7 @@ Flask\
 SQLite3
 
 ## Setup
-### Windows
+### Windows **MAY NOT WORK**
 Install python
 
 Clone the git repo and open in powershell
@@ -33,9 +33,9 @@ If you get any issues with running this script, run this command first:
 Set-ExecutionPolicy -Scope CurrentUser unrestricted
 ```
 
-Install flask and flask_sqlalchemy
+Install dependencies
 ```
-pip install flask flask_sqlalchemy
+pip install flask flask_sqlalchemy bcrypt
 ```
 Finally, to run the app, run the following command in the project's root
 ```
@@ -43,12 +43,12 @@ python app.py
 ```
 
 
-### Ubuntu
+### Ubuntu **RECOMMENDED ON WSL**
 Install python and dependencies
 ```
 sudo apt update
 sudo apt upgrade
-sudo apt install python3 python3-pip python3-virtualenv
+sudo apt install python3 python3-pip python3-virtualenv build-essential libffi-dev
 ```
 Clone the git repo and open in terminal
 
@@ -60,9 +60,9 @@ Activate the environment
 ```
 source env/bin/activate
 ```
-Install flask and flask_sqlalchemy
+Install dependencies
 ```
-pip install flask flask_sqlalchemy
+pip install flask flask_sqlalchemy bcrypt
 ```
 Finally, to run the app, run the following command in the project's root
 ```
