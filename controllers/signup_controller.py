@@ -4,6 +4,7 @@ from flask import redirect, session, request, render_template
 
 @app.route("/signup", methods=["POST", "GET"])
 def signup_page():
+    id = session.get("id")
     if id is not None:
         return redirect("/dashboard")
     
