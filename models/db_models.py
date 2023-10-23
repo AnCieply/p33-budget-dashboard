@@ -2,8 +2,9 @@ from init import db
 
 class Account(db.Model):
     id = db.Column(db.Integer, default=0)
-    username = db.Column(db.String(50), nullable=False, primary_key=True)
-    password = db.Column(db.String(50), nullable=False)
+    username = db.Column(db.String(100), nullable=False, primary_key=True)
+    password = db.Column(db.BLOB, nullable=False)
+    salt = db.Column(db.BLOB, nullable=False)
 
 class UserData(db.Model):
     id = db.Column(db.Integer, primary_key=True)
