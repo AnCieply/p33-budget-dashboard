@@ -1,12 +1,10 @@
 from init import app
 from models.signup_model import create_account
-from flask import redirect, request, render_template
+from flask import redirect, session, request, render_template
 
 @app.route("/signup", methods=["POST", "GET"])
 def signup_page():
-    id = request.cookies.get("id", -1, type=int)
-    # Send back to dashboard if an account is already logged in
-    if id != -1:
+    if id is not None:
         return redirect("/dashboard")
     
     if request.method == "POST":
