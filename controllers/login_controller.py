@@ -1,13 +1,12 @@
-from flask import render_template, request, make_response, url_for, redirect
+from flask import render_template, session, request, make_response, url_for, redirect
 
 from init import app
 from models.login_model import authenticate_user
 
 @app.route("/login", methods=["POST", "GET"])
 def login_page():
-    id = request.cookies.get("id", -1, type=int)
-    # Send back to dashboard if an account is already logged in
-    if id != -1:
+    id = session.get("id")
+    if id is not None:
         return redirect("/dashboard")
     
     if request.method == "POST":
@@ -26,9 +25,9 @@ def login_page():
             elif result == -2:
                 return render_template("login.html", pass_correct="False")
 
-        # Store user id as cookie
-        resp = make_response(redirect("/dashboard"))
-        resp.set_cookie("id", str(result))
-        return resp
+        # Store user data in session
+        session["id"] = result
+        session["username"] = username
+        return redirect("/dashboard")
     else:
         return render_template("login.html")
