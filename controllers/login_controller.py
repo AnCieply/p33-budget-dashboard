@@ -28,7 +28,6 @@ def login_page():
         # Store user data in session
         session["id"] = result
         session["username"] = username
-        # Store user id as cookie
         return redirect("/dashboard")
     else:
         return render_template("login.html")
