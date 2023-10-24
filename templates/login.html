@@ -13,13 +13,7 @@
             <input type="password" id="Password" name="Password" placeholder="Password">
             <input type="submit" name="login_button" value="Login">
             <input type="submit" name="signup_button" value="Signup">
-            {% if pass_correct == "False" %}
-            <p>Incorrect password. Please try again.</p>
-            {% elif account_exists == "False" %}
-            <p>Account doesn't exist. Please try again.</p>
-            {% else %}
-            <p>‏‏‎ ‎</p>
-            {% endif %}
+            {{ error_message }}
         </div>
     </form>
 </div>

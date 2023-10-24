@@ -1,5 +1,5 @@
 from init import app
-from models.signup_model import create_account
+from models.signup_model import create_account, username_exists
 from flask import redirect, session, request, render_template
 
 @app.route("/signup", methods=["POST", "GET"])
@@ -12,13 +12,22 @@ def signup_page():
         # User input from view
         username = request.form["Username"]
         password = request.form["Password"]
+        repassword = request.form["RePassword"]
         
+        # Error checks
         if username.isspace() or username == "" or password.isspace() or password == "":
-            return render_template("signup.html", space_or_empty="True")
+            return render_template("signup.html", error_message="Username or password cannot be empty or only spaces")
+        
+        if username_exists(username):
+            return render_template("signup.html", error_message="Account with username already exists")
+        
+        if password != repassword:
+            return render_template("signup.html",error_message="Passwords do not match")
         
         if not create_account(username, password):
-            return "Failed to create account"
+            return render_template("signup.html", error_message="Failed to create account")
         else:
             return redirect("/login")
     else:
-        return render_template("signup.html")
+        # Blank characters to keep formatting of page correct.
+        return render_template("signup.html", error_message="‏‏‎ ‎")
