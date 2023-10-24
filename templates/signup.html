@@ -12,11 +12,7 @@
             <input type="text" id="Username" name="Username" placeholder="Username">
             <input type="text" id="Password" name="Password" placeholder="Password">
             <input type="submit" name="signup_button" value="Register">
-            {% if space_or_empty == "True" %}
-            <p>Username or password cannot be blank. Please try again.</p>
-            {% else %}
-            <p>‏‏‎ ‎</p>
-            {% endif %}
+            {{ error_message }}
         </div>
     </form>
 </div>

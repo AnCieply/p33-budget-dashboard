@@ -21,13 +21,13 @@ def login_page():
         # If authentication fails...
         if result < 0:
             if result == -1:
-                return render_template("login.html", account_exists="False")
+                return render_template("login.html", error_message="Account doesn't exist")
             elif result == -2:
-                return render_template("login.html", pass_correct="False")
+                return render_template("login.html", error_message="Incorrect password")
 
         # Store user data in session
         session["id"] = result
         session["username"] = username
         return redirect("/dashboard")
     else:
-        return render_template("login.html")
+        return render_template("login.html", error_message="‏‏‎ ‎")

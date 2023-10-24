@@ -13,15 +13,17 @@ def signup_page():
         username = request.form["Username"]
         password = request.form["Password"]
         
+        # Error checks
         if username.isspace() or username == "" or password.isspace() or password == "":
-            return render_template("signup.html", space_or_empty="True")
+            return render_template("signup.html", error_message="Username or password cannot be empty or only spaces")
         
         if username_exists(username):
-            return "Account with username already exists"
+            return render_template("signup.html", error_message="Account with username already exists")
         
         if not create_account(username, password):
-            return "Failed to create account"
+            return render_template("signup.html", error_message="Failed to create account")
         else:
             return redirect("/login")
     else:
-        return render_template("signup.html")
+        # Blank characters to keep formatting of page correct.
+        return render_template("signup.html", error_message="‏‏‎ ‎")
