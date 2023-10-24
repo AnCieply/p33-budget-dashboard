@@ -1,5 +1,5 @@
 # p33-budget-dashboard
-A budget management application created for the P33 project
+A budget management application created for the P33 project.
 
 ## Tech Stack
 ### Frontend
