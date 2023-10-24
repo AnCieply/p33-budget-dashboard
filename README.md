@@ -8,7 +8,7 @@ HTML and CSS
 ### Backend
 Python\
 Flask\
-SQLite3
+Azure SQL
 
 ## Setup
 ### Windows **MAY NOT WORK**
