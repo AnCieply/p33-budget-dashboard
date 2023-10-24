@@ -10,7 +10,8 @@
     <form action="/signup" method="POST">
         <div class="signupinputs">
             <input type="text" id="Username" name="Username" placeholder="Username">
-            <input type="text" id="Password" name="Password" placeholder="Password">
+            <input type="password" id="Password" name="Password" placeholder="Password">
+            <input type="password" id="RePassword" name="RePassword" placeholder="Reenter password">
             <input type="submit" name="signup_button" value="Register">
             {{ error_message }}
         </div>
