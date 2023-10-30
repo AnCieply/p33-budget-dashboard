@@ -9,3 +9,4 @@ class Account(db.Model):
 class UserData(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     balance = db.Column(db.Float, default=0.0)
+    transactions = db.Column(db.JSON)
