@@ -6,6 +6,7 @@ class Account(db.Model):
     password = db.Column(db.LargeBinary, nullable=False)
     salt = db.Column(db.LargeBinary, nullable=False)
 
+
 class UserData(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     balance = db.Column(db.Float, default=0.0)

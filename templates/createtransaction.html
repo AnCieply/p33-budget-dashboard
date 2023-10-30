@@ -1,0 +1,24 @@
+{% extends 'loggedinbase.html' %}
+
+{% block head %}
+<title>Create Transaction</title>
+{% endblock %}
+
+{% block body %}
+<div class="transactionform">
+    <h1>Create Transaction</h1>
+    <form action="/createtransaction" method="POST">
+        <div class="transactioninputs">
+            <input type="text" id="Account" name="Account" placeholder="Account">
+            <input type="text" id="Date" name="Date" placeholder="Date">
+            <input type="text" id="Category" name="Category" placeholder="Category">
+            <input type="text" id="Amount" name="Amount" placeholder="Amount">
+            <label for="+">+</label>
+            <input type="radio" id="+" name="Pos" value="+">
+            <label for="-">-</label>
+            <input type="radio" id="-" name="Pos" value="-">
+            <input type="submit" name="create_button" value="Create">
+        </div>
+    </form>
+</div>
+{% endblock %}
