@@ -3,7 +3,7 @@ from sqlalchemy import select
 import json
 
 from init import app, db
-from models.dashboard_model import get_user_balance, register_transaction
+from models.dashboard_model import get_user_balance, register_transaction, get_transactions
 from models.db_models import UserData
 
 @app.route("/dashboard", methods=["POST", "GET"])
@@ -14,10 +14,10 @@ def dashboard_page():
         return redirect("/login")
     # Arcane code that formats the float value as dollars and cents
     balance = "${:,.2f}".format(get_user_balance(int(id or 0)))
-    return render_template("dashboard.html", page="dash", id=id, balance=balance)
+    return render_template("dashboard.html", page="dash", id=id, balance=balance, transactions=get_transactions(id))
 
 @app.route("/createtransaction", methods=["POST", "GET"])
-def create_trans():
+def create_trans_page():
     id = session.get("id")
     # Send back to login page if no account logged in
     if id is None:

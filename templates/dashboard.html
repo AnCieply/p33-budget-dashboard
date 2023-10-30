@@ -11,19 +11,29 @@
 </div>
 <div class="transbox">
     <h1>Transactions</h1>
+    <a href="{{ url_for('create_trans_page') }}">Add Transaction</a>
     <table>
         <tr>
-            <th>Account</th>
-            <th>Date</th>
-            <th>Category</th>
-            <th>Amount</th>
+            <th class="tablehead">Account</th>
+            <th class="tablehead">Date</th>
+            <th class="tablehead">Category</th>
+            <th class="tablehead">Amount</th>
         </tr>
+        {% for trans in transactions %}
         <tr>
-            <td>CHECKING</td>
-            <td>10/20/2023</td>
-            <td>GROCERIES</td>
-            <td>-$500.00</td>
+            <th>{{ trans.get("Account") }}</th>
+            <th>{{ trans.get("Date") }}</th>
+            <th>{{ trans.get("Category") }}</th>
+            <th>
+                {% if trans.get("Pos") == True %}
+                +
+                {% else %}
+                -
+                {% endif %}
+                {{ trans.get("Amount") }}
+            </th>
         </tr>
+        {% endfor %}
     </table>
 </div>
 {% endblock %}

@@ -1,6 +1,7 @@
 body {
     margin: 0;
     font-family: nunito, sans-serif;
+    font-weight: normal;
     background-color: #a8a8a8;
 }
 
@@ -49,7 +50,12 @@ body {
     padding: 0% 10%;
 }
 
+.tablehead {
+    font-weight: bold;
+}
+
 table, tr, th, td {
+    font-weight: normal;
     border: 1px solid
 }
 

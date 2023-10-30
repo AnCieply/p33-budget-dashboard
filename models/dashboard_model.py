@@ -24,6 +24,10 @@ def register_transaction(user_id: int, acc: str, date: str, category: str, amoun
     # Update user data object and commit changes
     user_data.transactions = json.dumps(user_trans)
     db.session.commit()
+    
+
+def get_transactions(user_id: int):
+    return json.loads(db.session.execute(select(UserData).filter_by(id=user_id)).scalar_one().transactions)
 
 
 def get_user_balance(id: int):
