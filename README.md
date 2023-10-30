@@ -8,7 +8,7 @@ HTML and CSS
 ### Backend
 Python\
 Flask\
-Azure SQL
+PostgreSQL
 
 ## Setup
 ### Windows **MAY NOT WORK**
