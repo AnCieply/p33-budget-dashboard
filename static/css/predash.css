@@ -104,3 +104,8 @@ input[type=submit]:hover {
     align-items: center;
     row-gap: 10px;
 }
+
+input[name="signup_button"] {
+    width: 75px;
+    transform: translate(0, 30px)
+}
