@@ -6,7 +6,7 @@ from os import urandom
 
 # App and database initialization
 app = Flask(__name__)
-app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql://postgres:9132004@localhost:5432/p33"
+app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql://postgres:9132004@137.184.69.108:5432/p33"
 app.secret_key = urandom(24)
 
 db = SQLAlchemy(app)
