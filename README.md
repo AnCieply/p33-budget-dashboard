@@ -8,7 +8,7 @@ HTML and CSS
 ### Backend
 Python\
 Flask\
-Azure SQL
+PostgreSQL
 
 ## Setup
 ### Windows **MAY NOT WORK**
@@ -62,9 +62,15 @@ source env/bin/activate
 ```
 Install dependencies
 ```
-pip install flask flask_sqlalchemy bcrypt
+pip install -r requirements.txt
+```
+Set flask-related environment variables
+```
+export FLASK_APP=app
+export FLASK_ENV=development
+export FLASK_DEBUG=1
 ```
 Finally, to run the app, run the following command in the project's root
 ```
-python3 app.py
+flask run
 ```
