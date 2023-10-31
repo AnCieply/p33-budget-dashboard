@@ -36,3 +36,9 @@ def get_user_balance(id: int):
         return user_data.balance
     except:
         return -0.0
+
+
+def modify_user_balance(user_id: int, balance_change: float):
+    user_data = db.session.query(UserData).filter(UserData.id == user_id).one()
+    user_data.balance = user_data.balance + balance_change
+    db.session.commit()

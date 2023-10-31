@@ -3,7 +3,7 @@ from sqlalchemy import select
 import json
 
 from init import app, db
-from models.dashboard_model import get_user_balance, register_transaction, get_transactions
+from models.dashboard_model import get_user_balance, register_transaction, get_transactions, modify_user_balance
 from models.db_models import UserData
 
 @app.route("/dashboard", methods=["POST", "GET"])
@@ -32,9 +32,12 @@ def create_trans_page():
         
         if pos == "+":
             pos = True
+            modify_user_balance(id, float(amount))
         else:
             pos = False
+            modify_user_balance(id, -float(amount))
         
         register_transaction(id, account, date, category, amount, pos)
+        
     
     return render_template("createtransaction.html")

@@ -11,7 +11,7 @@ def username_exists(username: str):
     except:
         return False
     
-def create_account(username: str, password: str):
+def create_account(username: str, password: str, initial_balance: float):
     try:
         if username_exists(username):
             return False
@@ -29,7 +29,7 @@ def create_account(username: str, password: str):
         
         new_data = UserData()
         new_data.id = new_account.id
-        new_data.balance = 0.0
+        new_data.balance = initial_balance
         new_data.transactions = json.dumps([])
         
         db.session.add(new_account)

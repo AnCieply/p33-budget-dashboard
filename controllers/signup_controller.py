@@ -13,6 +13,7 @@ def signup_page():
         username = request.form["Username"]
         password = request.form["Password"]
         repassword = request.form["RePassword"]
+        initial_balance = request.form["initial_balance"]
         
         # Error checks
         if username.isspace() or username == "" or password.isspace() or password == "":
@@ -24,7 +25,7 @@ def signup_page():
         if password != repassword:
             return render_template("signup.html",error_message="Passwords do not match")
         
-        if not create_account(username, password):
+        if not create_account(username, password, initial_balance):
             return render_template("signup.html", error_message="Failed to create account")
         else:
             return redirect("/login")
