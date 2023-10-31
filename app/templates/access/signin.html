@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'access_base.html' %}
 
 {% block head %}
 <title>Login</title>
@@ -7,7 +7,7 @@
 {% block body %}
 <div class="loginbox">
     <h1>Login</h1>
-    <form action="/login" method="POST">
+    <form action="{{ url_for('access.signin_page') }}" method="POST">
         <div class="logininputs">
             <input type="text" id="Username" name="Username" placeholder="Username">
             <input type="password" id="Password" name="Password" placeholder="Password">

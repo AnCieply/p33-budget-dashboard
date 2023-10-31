@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block basehead %}
+{% block head %}{% endblock %}
+{% endblock %}
+
+{% block basebody %}
+<div class="navbar">
+    <a {% if page == "dash" %} class="active" {% endif %} href="{{ url_for('finance.dashboard_page') }}">Dashboard</a>
+    <a {% if page == "report" %} class="active" {% endif %} href="{{ url_for('finance.report_page') }}">Report</a>
+    <a {% if page == "spending" %} class="active" {% endif %} href="{{ url_for('finance.spending_plan_page') }}">Spending Plan</a>
+</div>
+{% block body %}{% endblock %}
+{% endblock %}
+

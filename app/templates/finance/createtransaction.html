@@ -1,4 +1,4 @@
-{% extends 'loggedinbase.html' %}
+{% extends 'user_view_base.html' %}
 
 {% block head %}
 <title>Create Transaction</title>
@@ -7,7 +7,7 @@
 {% block body %}
 <div class="transactionform">
     <h1>Create Transaction</h1>
-    <form action="/createtransaction" method="POST">
+    <form action="{{ url_for('finance.create_trans_page') }}" method="POST">
         <div class="transactioninputs">
             <input type="text" id="Account" name="Account" placeholder="Account">
             <input type="text" id="Date" name="Date" placeholder="Date">
