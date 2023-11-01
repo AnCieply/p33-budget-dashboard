@@ -11,39 +11,7 @@ Flask\
 PostgreSQL
 
 ## Setup
-### Windows **MAY NOT WORK**
-Install python
-
-Clone the git repo and open in powershell
-
-Install virtualenv
-```
-pip install virtualenv
-```
-Run the following command to create the python virtual environment
-```
-python -m virtualenv env
-```
-Activate the environment
-```
-.\env\Scripts\activate.ps1
-```
-If you get any issues with running this script, run this command first:
-```
-Set-ExecutionPolicy -Scope CurrentUser unrestricted
-```
-
-Install dependencies
-```
-pip install flask flask_sqlalchemy bcrypt
-```
-Finally, to run the app, run the following command in the project's root
-```
-python app.py
-```
-
-
-### Ubuntu **RECOMMENDED ON WSL**
+### Ubuntu
 Install python and dependencies
 ```
 sudo apt update
