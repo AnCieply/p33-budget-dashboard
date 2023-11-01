@@ -1,0 +1,18 @@
+{% extends 'user_view_base.html' %}
+
+{% block head %}
+<title>Create Category</title>
+{% endblock %}
+
+{% block body %}
+<div class="formbox">
+    <h1>Create Category</h1>
+    <form action="{{ url_for('finance.create_category_page') }}" method="POST">
+        <div class="forminputs">
+            <input type="text" id="Name" name="Name" placeholder="Name">
+            <input type="text" id="SpendingLimit" name="SpendingLimit" placeholder="Spending Limit">
+            <input type="submit" name="create_button" value="Create">
+        </div>
+    </form>
+</div>
+{% endblock %}

@@ -69,24 +69,6 @@ th, td {
     font-weight: bold;
 }
 
-.loginbox {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.logininputs {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    row-gap: 10px;
-}
-
 input[type=text] {
     font-family: nunito, sans-serif;
     background-color: #ffffff;
@@ -126,11 +108,21 @@ input[type=submit]:hover {
     border: 3px solid #04AA6D;
 }
 
+select {
+    font-family: nunito, sans-serif;
+    background-color: #ffffff;
+    color: black;
+    font-size: 17px;
+    width: 200px;
+    height: 30px;
+    border: 3px solid #333;
+}
+
 ::placeholder {
     color: #a9a9cc;
 }
 
-.signupbox {
+.formbox {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -141,7 +133,7 @@ input[type=submit]:hover {
     transform: translate(-50%, -50%);
 }
 
-.signupinputs {
+.forminputs {
     display: flex;
     flex-direction: column;
     align-items: center;

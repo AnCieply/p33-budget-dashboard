@@ -2,7 +2,7 @@ from flask import render_template, session, redirect, url_for, request
 from json import loads
 
 from app.finance import bp
-from app.models.user_data import get_user_balance, modify_user_balance, add_user_transaction, get_user_data
+from app.models.user_data import *
 
 
 @bp.route("/")
@@ -31,9 +31,18 @@ def create_trans_page():
     if request.method == "POST":
         account = request.form["Account"]
         date = request.form["Date"]
-        category = request.form["Category"]
+        category = request.form["Categories"]
         amount = request.form["Amount"]
+        
+        # If no option was chosen for Pos
+        if "Pos" not in request.form:
+            return redirect(url_for("finance.create_trans_page"))
+        
         pos = request.form["Pos"]
+        
+        # If any field was left blank
+        if account == "" or date == "" or category == "" or amount == "":
+            return redirect(url_for("finance.create_trans_page"))
         
         if pos == "+":
             pos = True
@@ -44,8 +53,8 @@ def create_trans_page():
         
         add_user_transaction(id, account, date, category, amount, pos)
         
-    
-    return render_template("finance/createtransaction.html")
+    categories = get_budget_categories(id)
+    return render_template("finance/createtransaction.html", categories=categories)
 
 
 @bp.route("/report", methods=["POST", "GET"])
@@ -64,4 +73,14 @@ def spending_plan_page():
     if id is None:
         return redirect(url_for("access.signin_page"))
     return render_template("finance/spendingplan.html", page="spending")
+
+
+@bp.route("/spendingplan/createcategory", methods=["POST", "GET"])
+def create_category_page():
+    id = session.get("id")
+    # Send back to login page if no account logged in
+    if id is None:
+        return redirect(url_for("access.signin_page"))
+    
+    return render_template("finance/createcategory.html")
 

@@ -5,18 +5,32 @@
 {% endblock %}
 
 {% block body %}
-<div class="transactionform">
+<div class="formbox">
     <h1>Create Transaction</h1>
     <form action="{{ url_for('finance.create_trans_page') }}" method="POST">
-        <div class="transactioninputs">
-            <input type="text" id="Account" name="Account" placeholder="Account">
-            <input type="text" id="Date" name="Date" placeholder="Date">
-            <input type="text" id="Category" name="Category" placeholder="Category">
-            <input type="text" id="Amount" name="Amount" placeholder="Amount">
+        <div class="forminputs">
+            <label for="Account">Account</label>
+            <input type="text" id="Account" name="Account" placeholder="Checking">
+
+            <label for="Date">Date</label>
+            <input type="text" id="Date" name="Date" placeholder="mm/dd/yyyy">
+
+            <!-- Adds a dropdown option for every user created category -->
+            <label for="Categories">Category</label>
+            <select name="Categories" id="Categories">
+                {% for category in categories %}
+                <option value="{{ category.get('Name') }}">{{ category.get('Name') }}</option>
+                {% endfor %}
+            </select>
+
+            <label for="Amount">Amount</label>
+            <input type="text" id="Amount" name="Amount" placeholder="00.00">
+
             <label for="+">+</label>
             <input type="radio" id="+" name="Pos" value="+">
             <label for="-">-</label>
             <input type="radio" id="-" name="Pos" value="-">
+
             <input type="submit" name="create_button" value="Create">
         </div>
     </form>

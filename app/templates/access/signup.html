@@ -5,10 +5,10 @@
 {% endblock %}
 
 {% block body %}
-<div class="signupbox">
+<div class="formbox">
     <h1>Signup</h1>
     <form action="{{ url_for('access.signup_page') }}" method="POST">
-        <div class="signupinputs">
+        <div class="forminputs">
             <input type="text" id="Username" name="Username" placeholder="Username">
             <input type="password" id="Password" name="Password" placeholder="Password">
             <input type="password" id="RePassword" name="RePassword" placeholder="Reenter password">
