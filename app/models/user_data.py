@@ -9,6 +9,7 @@ class UserData(db.Model):
     id = db.Column(db.Integer, nullable=False, primary_key=True)
     balance = db.Column(db.Float, nullable=False, default=0.0)
     transactions = db.Column(db.JSON, nullable=False)
+    budget_categories = db.Column(db.JSON, nullable=False)
 
 
 def get_user_data(user_id: int) -> UserData:
@@ -61,3 +62,9 @@ def add_user_transaction(user_id: int, account: str, date: str, category: str, a
         db.session.commit()
     except:
         print(traceback.format_exc())
+
+
+def get_budget_categories(user_id: int) -> list:
+    user_data = get_user_data(user_id)
+    return loads(user_data.budget_categories)
+
