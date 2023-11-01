@@ -57,7 +57,11 @@ def create_account(username: str, password: str, initial_balance: float):
         new_data = UserData()
         new_data.id = new_account.id
         new_data.balance = initial_balance
-        new_data.transactions = dumps([])
+        
+        # Initializes JSON columns with empty lists
+        empty_list = dumps([])
+        new_data.transactions = empty_list
+        new_data.budget_categories = empty_list
         
         db.session.add(new_account)
         db.session.add(new_data)
