@@ -68,3 +68,33 @@ def get_budget_categories(user_id: int) -> list:
     user_data = get_user_data(user_id)
     return loads(user_data.budget_categories)
 
+
+# Monthly Budget Category:
+#    Name
+#    Spending Limit
+#    Total Spent
+#    Transaction Count
+def create_budget_category(user_id: int, name: str, spend_limit: float):
+    try:
+        category = {
+            "Name": name,
+            "SpendingLimit": spend_limit,
+            "TotalSpent": 00.00,
+            "TransactionCount": 0
+        }
+        
+        # Get user transaction data from database 
+        user_data = get_user_data(user_id)
+        categories_json = user_data.budget_categories
+        
+        # Deserialize transaction list and append transaction
+        categories_list: list = loads(categories_json)
+        categories_list.append(category)
+        
+        # Update user data object and commit changes
+        categories_json = dumps(categories_list)
+        user_data.budget_categories = categories_json
+        db.session.commit()
+    except:
+        print(traceback.format_exc())
+
