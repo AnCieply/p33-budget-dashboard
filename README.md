@@ -10,7 +10,7 @@ Python\
 Flask\
 PostgreSQL
 
-## Setup
+## Dev Setup
 ### Ubuntu
 Install python and dependencies
 ```
