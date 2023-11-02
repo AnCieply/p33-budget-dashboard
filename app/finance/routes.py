@@ -47,12 +47,11 @@ def create_trans_page():
         true_amount = 0
         if pos == "+":
             pos = True
-            true_amount = float(amount)
             modify_user_balance(id, true_amount)
         else:
             pos = False
-            true_amount = -float(amount)
-            modify_user_balance(id, true_amount)
+            true_amount = float(amount)
+            modify_user_balance(id, -true_amount)
         
         add_user_transaction(id, account, date, category, amount, pos)
         
@@ -69,7 +68,9 @@ def spending_plan_page():
     # Send back to login page if no account logged in
     if id is None:
         return redirect(url_for("access.signin_page"))
-    return render_template("finance/spendingplan.html", page="spending")
+    
+    categories = get_budget_categories(id)
+    return render_template("finance/spendingplan.html", page="spending", categories=categories)
 
 
 @bp.route("/spendingplan/createcategory", methods=["POST", "GET"])
@@ -87,7 +88,7 @@ def create_category_page():
         if name == "" or amount == "":
             return redirect(url_for("finance.create_category_page"))
         
-        create_budget_category(id, name, amount)
+        create_budget_category(id, name, float(amount))
     
     return render_template("finance/createcategory.html")
 

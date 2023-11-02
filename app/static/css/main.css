@@ -139,3 +139,21 @@ select {
     align-items: center;
     row-gap: 10px;
 }
+
+.centercontent {
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.categorygrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: minmax(100px, auto);
+    gap: 25px 25px;
+}
+
+.categorywidget {
+    border-radius: 25px;
+    text-align: center;
+    background-color: antiquewhite;
+}

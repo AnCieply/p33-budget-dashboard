@@ -5,5 +5,19 @@
 {% endblock %}
 
 {% block body %}
-<a href="{{ url_for('finance.create_category_page') }}">Create New Category</a>
+<div class="centercontent">
+    <a href="{{ url_for('finance.create_category_page') }}">Create New Category</a>
+    <!-- Information about the user's categories -->
+    <div class="categorygrid">
+        {% for category in categories %}
+        <div class="categorywidget">
+            <h1>{{ category.get('Name') }}</h1>
+            <p>Transactions: {{ category.get('TransactionCount') }}</p>
+            <p>Spending Limit: ${{ category.get('SpendingLimit') }}</p>
+            <p>Total spent: ${{ category.get('TotalSpent') }}</p>
+            <p>Remaining: ${{ category.get('SpendingLimit') - category.get('TotalSpent') }}</p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
 {% endblock %}

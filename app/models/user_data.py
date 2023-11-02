@@ -128,7 +128,6 @@ def modify_category_spent(user_id: int, name: str, amount: float):
         categories_list: list = loads(categories_json)
         category: dict = next(filter(lambda x: x["Name"] == name, categories_list))
         category["TotalSpent"] += amount
-        print(category["TotalSpent"])
         
         # Update user data object and commit changes
         categories_json = dumps(categories_list)
