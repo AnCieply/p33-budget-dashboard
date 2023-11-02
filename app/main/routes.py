@@ -1,4 +1,4 @@
-from flask import render_template, url_for
+from flask import url_for, redirect
 
 from app.main import bp
 from app.extensions import db
