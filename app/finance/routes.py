@@ -47,7 +47,7 @@ def create_trans_page():
         true_amount = 0
         if pos == "+":
             pos = True
-            modify_user_balance(id, true_amount)
+            modify_user_balance(id, float(amount))
         else:
             pos = False
             true_amount = float(amount)
