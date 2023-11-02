@@ -83,13 +83,52 @@ def create_budget_category(user_id: int, name: str, spend_limit: float):
             "TransactionCount": 0
         }
         
-        # Get user transaction data from database 
+        # Get category data from database 
         user_data = get_user_data(user_id)
         categories_json = user_data.budget_categories
         
-        # Deserialize transaction list and append transaction
+        # Deserialize category list and append category
         categories_list: list = loads(categories_json)
         categories_list.append(category)
+        
+        # Update user data object and commit changes
+        categories_json = dumps(categories_list)
+        user_data.budget_categories = categories_json
+        db.session.commit()
+    except:
+        print(traceback.format_exc())
+
+
+def increment_category_trans(user_id: int, name: str):
+    try:
+        # Get category data from database 
+        user_data = get_user_data(user_id)
+        categories_json = user_data.budget_categories
+
+        # Deserialize category list
+        categories_list: list = loads(categories_json)
+        category: dict = next(filter(lambda x: x["Name"] == name, categories_list))
+        category["TransactionCount"] += 1
+        
+        # Update user data object and commit changes
+        categories_json = dumps(categories_list)
+        user_data.budget_categories = categories_json
+        db.session.commit()
+    except:
+        print(traceback.format_exc())
+        
+        
+def modify_category_spent(user_id: int, name: str, amount: float):
+    try:
+        # Get category data from database 
+        user_data = get_user_data(user_id)
+        categories_json = user_data.budget_categories
+
+        # Deserialize category list
+        categories_list: list = loads(categories_json)
+        category: dict = next(filter(lambda x: x["Name"] == name, categories_list))
+        category["TotalSpent"] += amount
+        print(category["TotalSpent"])
         
         # Update user data object and commit changes
         categories_json = dumps(categories_list)
