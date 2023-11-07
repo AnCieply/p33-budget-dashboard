@@ -72,10 +72,14 @@ def signup_page():
     
 @bp.route("/signout", methods=["POST", "GET"])
 def signout():
-    # Remove user specific data
-    session.pop("id")
-    session.pop("username")
-    
-    # Redirect to sigin page
-    return redirect(url_for("access.signin_page"))
+    try:
+        # Remove user specific data
+        session.pop("id")
+        session.pop("username")
+
+        # Redirect to sigin page
+        return redirect(url_for("access.signin_page"))
+    except:
+        # Redirect to sigin page
+        return redirect(url_for("access.signin_page"))
 
