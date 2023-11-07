@@ -5,35 +5,37 @@
 {% endblock %}
 
 {% block body %}
-<div class="balancebox">
-    <h1>Balance</h1>
-    <p>{{balance}}</p>
-</div>
-<div class="transbox">
-    <h1>Transactions</h1>
-    <a href="{{ url_for('finance.create_trans_page') }}">Add Transaction</a>
-    <table>
-        <tr>
-            <th class="tablehead">Account</th>
-            <th class="tablehead">Date</th>
-            <th class="tablehead">Category</th>
-            <th class="tablehead">Amount</th>
-        </tr>
-        {% for trans in transactions %}
-        <tr>
-            <th>{{ trans.get("Account") }}</th>
-            <th>{{ trans.get("Date") }}</th>
-            <th>{{ trans.get("Category") }}</th>
-            <th>
-                {% if trans.get("Pos") == True %}
-                +
-                {% else %}
-                -
-                {% endif %}
-                {{ trans.get("Amount") }}
-            </th>
-        </tr>
-        {% endfor %}
-    </table>
+<div class="row">
+    <div class="col-4">
+        <h1 class="fs-3">Balance</h1>
+        <p class="fs-1">{{balance}}</p>
+    </div>
+    <div class="col">
+        <h1 class="fs-3">Transactions</h1>
+        <a class="btn btn-primary" href="{{ url_for('finance.create_trans_page') }}">Add Transaction</a>
+        <table class="table">
+            <tr>
+                <th>Account</th>
+                <th>Date</th>
+                <th>Category</th>
+                <th>Amount</th>
+            </tr>
+            {% for trans in transactions %}
+            <tr>
+                <th class="fw-normal">{{ trans.get("Account") }}</th>
+                <th class="fw-normal">{{ trans.get("Date") }}</th>
+                <th class="fw-normal">{{ trans.get("Category") }}</th>
+                <th class="fw-normal">
+                    {% if trans.get("Pos") == True %}
+                    +
+                    {% else %}
+                    -
+                    {% endif %}
+                    {{ trans.get("Amount") }}
+                </th>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
 </div>
 {% endblock %}

@@ -1,20 +1,34 @@
 {% extends 'access_base.html' %}
 
 {% block head %}
-<title>Login</title>
+<title>Signin</title>
 {% endblock %}
 
 {% block body %}
-<div class="formbox">
-    <h1>Login</h1>
-    <form action="{{ url_for('access.signin_page') }}" method="POST">
-        <div class="forminputs">
-            <input type="text" id="Username" name="Username" placeholder="Username">
-            <input type="password" id="Password" name="Password" placeholder="Password">
-            <input type="submit" name="login_button" value="Login">
-            <input type="submit" name="signup_button" value="Signup">
-            {{ error_message }}
+<div class="container-sm">
+    <div class="row justify-content-center">
+        <div class="col-4">
+            <h1 class="text-center fs-3">Signin</h1>
+            <form action="{{ url_for('access.signin_page') }}" method="POST">
+                <div class="mb-3">
+                    <label for="Username" class="form-label">Username</label>
+                    <input type="text" class="form-control" id="Username" name="Username" placeholder="">
+                </div>
+                <div class="mb-3">
+                    <label for="Password" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="Password" name="Password" placeholder="">
+                </div>
+                <div class="mb-3">
+                    <input type="submit" class="form-control btn btn-primary" name="login_button" value="Login">
+                </div>
+                <div class="mb-3">
+                    <input type="submit" class="form-control btn btn-primary" name="signup_button" value="Signup">   
+                </div>
+                <div class="mb-3">
+                    <p>{{ error_message }}</p>
+                </div>
+            </form>
         </div>
-    </form>
+    </div>
 </div>
 {% endblock %}

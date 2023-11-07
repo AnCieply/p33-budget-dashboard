@@ -5,19 +5,28 @@
 {% endblock %}
 
 {% block body %}
-<div class="centercontent">
-    <a href="{{ url_for('finance.create_category_page') }}">Create New Category</a>
-    <!-- Information about the user's categories -->
-    <div class="categorygrid">
-        {% for category in categories %}
-        <div class="categorywidget">
-            <h1>{{ category.get('Name') }}</h1>
-            <p>Transactions: {{ category.get('TransactionCount') }}</p>
-            <p>Spending Limit: ${{ category.get('SpendingLimit') }}</p>
-            <p>Total spent: ${{ category.get('TotalSpent') }}</p>
-            <p>Remaining: ${{ category.get('SpendingLimit') - category.get('TotalSpent') }}</p>
+<div class="row mb-3">
+    <h1 class="fs-3">Budget Categories</h1>
+</div>
+<div class="row">
+    <div class="col-3">
+        <a class="btn btn-primary" href="{{ url_for('finance.create_category_page') }}">Create New Category</a>
+    </div>  
+</div>
+<!-- Information about the user's categories -->
+<div class="row">
+    {% for category in categories %}
+    <div class="col-3 mb-4 mt-4">
+        <div class="card bg-primary-subtle">
+            <div class="card-body">
+                <h1 class="card-title">{{ category.get('Name') }}</h1>
+                <p class="card-text">Transactions: {{ category.get('TransactionCount') }}</p>
+                <p class="card-text">Spending Limit: ${{ category.get('SpendingLimit') }}</p>
+                <p class="card-text">Total spent: ${{ category.get('TotalSpent') }}</p>
+                <p class="card-text">Remaining: ${{ category.get('SpendingLimit') - category.get('TotalSpent') }}</p>
+            </div>
         </div>
-        {% endfor %}
     </div>
+    {% endfor %}
 </div>
 {% endblock %}
