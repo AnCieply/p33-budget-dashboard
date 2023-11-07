@@ -3,7 +3,8 @@ A budget management application created for the P33 project.
 
 ## Tech Stack
 ### Frontend
-HTML and CSS
+HTML\
+CSS with Bootstrap
 
 ### Backend
 Python\
