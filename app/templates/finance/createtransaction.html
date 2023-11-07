@@ -5,34 +5,49 @@
 {% endblock %}
 
 {% block body %}
-<div class="formbox">
-    <h1>Create Transaction</h1>
-    <form action="{{ url_for('finance.create_trans_page') }}" method="POST">
-        <div class="forminputs">
-            <label for="Account">Account</label>
-            <input type="text" id="Account" name="Account" placeholder="Checking">
-
-            <label for="Date">Date</label>
-            <input type="text" id="Date" name="Date" placeholder="mm/dd/yyyy">
-
-            <!-- Adds a dropdown option for every user created category -->
-            <label for="Categories">Category</label>
-            <select name="Categories" id="Categories">
-                {% for category in categories %}
-                <option value="{{ category.get('Name') }}">{{ category.get('Name') }}</option>
-                {% endfor %}
-            </select>
-
-            <label for="Amount">Amount</label>
-            <input type="text" id="Amount" name="Amount" placeholder="00.00">
-
-            <label for="+">+</label>
-            <input type="radio" id="+" name="Pos" value="+">
-            <label for="-">-</label>
-            <input type="radio" id="-" name="Pos" value="-">
-
-            <input type="submit" name="create_button" value="Create">
+<h1 class="fs-3">Create Transaction</h1>
+<form action="{{ url_for('finance.create_trans_page') }}" method="POST">
+    <div class="row">
+        <div class="col-3">
+            <div class="mb-3">
+                <label class="form-label" for="Account">Account</label>
+                <input class="form-control" type="text" id="Account" name="Account" placeholder="Checking">
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="Date">Date</label>
+                <input class="form-control" type="text" id="Date" name="Date" placeholder="mm/dd/yyyy">
+            </div>
+            <div class="mb-3">
+                <!-- Adds a dropdown option for every user created category -->
+                <label class="form-label" for="Categories">Category</label>
+                <select class="form-control" name="Categories" id="Categories">
+                    {% for category in categories %}
+                    <option value="{{ category.get('Name') }}">{{ category.get('Name') }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="Amount">Amount</label>
+                <input class="form-control" type="text" id="Amount" name="Amount" placeholder="00.00">
+            </div>
+            <div class="mb-3">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="Pos" id="+">
+                    <label class="form-check-label" for="+">
+                        +
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="Pos" id="-" checked>
+                    <label class="form-check-label" for="-">
+                        -
+                </label>
+                </div>
+            </div>
+            <div class="mb-3">
+                <input class="btn btn-primary" type="submit" name="create_button" value="Create">
+            </div>
         </div>
-    </form>
-</div>
+    </div>
+</form>
 {% endblock %}
