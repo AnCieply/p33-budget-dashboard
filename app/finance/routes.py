@@ -12,9 +12,10 @@ def index():
 
 @bp.route("/dashboard", methods=["POST", "GET"])
 def dashboard_page():
-    id = session.get("id")
-    # Send back to login page if no account logged in
-    if id is None:
+    id = -1
+    if "id" in session:
+        id = session.get("id")
+    else:
         return redirect(url_for("access.signin_page"))
     # Arcane code that formats the float value as dollars and cents
     balance = "${:,.2f}".format(get_user_balance(int(id or 0)))
@@ -23,9 +24,10 @@ def dashboard_page():
 
 @bp.route("/dashboard/createtransaction", methods=["POST", "GET"])
 def create_trans_page():
-    id = session.get("id")
-    # Send back to login page if no account logged in
-    if id is None:
+    id = -1
+    if "id" in session:
+        id = session.get("id")
+    else:
         return redirect(url_for("access.signin_page"))
     
     if request.method == "POST":
@@ -64,9 +66,10 @@ def create_trans_page():
 
 @bp.route("/spendingplan", methods=["POST", "GET"])
 def spending_plan_page():
-    id = session.get("id")
-    # Send back to login page if no account logged in
-    if id is None:
+    id = -1
+    if "id" in session:
+        id = session.get("id")
+    else:
         return redirect(url_for("access.signin_page"))
     
     categories = get_budget_categories(id)
@@ -75,9 +78,10 @@ def spending_plan_page():
 
 @bp.route("/spendingplan/createcategory", methods=["POST", "GET"])
 def create_category_page():
-    id = session.get("id")
-    # Send back to login page if no account logged in
-    if id is None:
+    id = -1
+    if "id" in session:
+        id = session.get("id")
+    else:
         return redirect(url_for("access.signin_page"))
     
     if request.method == "POST":

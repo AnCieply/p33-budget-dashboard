@@ -11,8 +11,7 @@ def index():
 
 @bp.route("/signin", methods=["POST", "GET"])
 def signin_page():
-    id = session.get("id")
-    if id is not None:
+    if "id" in session:
         return redirect(url_for("finance.dashboard_page"))
     
     if request.method == "POST":
@@ -33,7 +32,6 @@ def signin_page():
 
         # Store user data in session
         session["id"] = result
-        session["username"] = username
         return redirect(url_for("finance.dashboard_page"))
     else:
         return render_template("access/signin.html", error_message="‏‏‎ ‎")
@@ -41,8 +39,7 @@ def signin_page():
 
 @bp.route("/signup", methods=["POST", "GET"])
 def signup_page():
-    id = session.get("id")
-    if id is not None:
+    if "id" in session:
         return redirect(url_for("finance.dashboard_page"))
     
     if request.method == "POST":
@@ -72,10 +69,9 @@ def signup_page():
     
 @bp.route("/signout", methods=["POST", "GET"])
 def signout():
-    # Remove user specific data
-    session.pop("id")
-    session.pop("username")
+    if "id" in session:
+        session.pop("id")
+        return redirect(url_for("access.signin_page"))
     
-    # Redirect to sigin page
     return redirect(url_for("access.signin_page"))
 
